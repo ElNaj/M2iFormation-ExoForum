@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  mongo:
+    image: mongo
+    container_name: forum-db 
+    ports:
+    - 27017:27017
+
+  mongo-ui:
+    image: mongo-express
+    container_name: forum-express 
+    ports:
+    - 8082:8081
+
+    depends_on:
+      - mongo

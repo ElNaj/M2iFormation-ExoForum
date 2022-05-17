@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-message-form',
+  selector: 'message-form',
   templateUrl: './message-form.component.html',
   styleUrls: ['./message-form.component.scss']
 })

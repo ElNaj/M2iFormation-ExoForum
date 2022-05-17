@@ -16,7 +16,6 @@ public class Sujet {
     private String id;
     private String title;
     private int likes;
-    @DBRef
     private List<Message> messages;
     private LocalDate createdDate;
     private LocalDate updatedDate;

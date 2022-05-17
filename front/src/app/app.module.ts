@@ -11,8 +11,10 @@ import { PageSujetsComponent } from './pages/page-sujets/page-sujets.component';
 import { SujetFormComponent } from './pages/sujet-form/sujet-form.component';
 import { SujetCardComponent } from './components/sujets/sujet-card/sujet-card.component';
 import { SujetListComponent } from './components/sujets/sujet-list/sujet-list.component';
-import { MessagesComponent } from './pages/messages/messages.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { MessageFormComponent } from './pages/message-form/message-form.component';
+import { SujetDetailsComponent } from './pages/sujet-details/sujet-details.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +24,18 @@ import { MessageFormComponent } from './pages/message-form/message-form.componen
     HomeComponent,
     NotFoundComponent,
     PageSujetsComponent,
-    SujetFormComponent,
     SujetCardComponent,
     SujetListComponent,
-    MessagesComponent,
-    MessageFormComponent
+    SujetFormComponent,
+    MessageFormComponent,
+    SujetDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

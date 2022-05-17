@@ -1,1 +1,35 @@
-<p>sujet-form works!</p>
+<div class="card">
+    <div class="card-header">
+      <h1>Ajouter un Sujet</h1>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="sujetForm" (ngSubmit)="ajouterSujet()">
+            <h3>Sujet :</h3>
+            <div class="input-zone">
+                <label for="title">Titre :
+                    <input type="text" formControlName="title">
+                </label>
+            </div>
+            <div class="input-zone">
+                <label for="likes">Likes :
+                    <i class="bi bi-hand-thumbs-up"></i>
+                    <input type="text" formControlName="likes">
+                </label>
+            </div>
+            <div class="input-zone">
+                <label for="createdDate">Date de création :
+                    <input type="date" formControlName="createdDate">
+                </label>
+            </div>
+            <div class="input-zone">
+                <label for="updatedDate">Date de mise à jours :
+                    <input type="date" formControlName="updatedDate">
+                </label>
+            </div>
+            <p></p>
+             <button class="btn btn-success">
+                 Ajouter
+                </button>
+        </form>
+    </div>
+  </div>

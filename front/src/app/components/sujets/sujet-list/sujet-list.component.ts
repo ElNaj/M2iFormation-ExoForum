@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sujet } from 'src/app/models/sujet.model';
+import { SujetService } from 'src/app/services/sujet.service';
 
 @Component({
   selector: 'sujet-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SujetListComponent implements OnInit {
 
-  constructor() { }
+  sujets: Sujet[] = [];
+
+  constructor(private service: SujetService) { }
 
   ngOnInit(): void {
+    this.initSujets();
+  }
+
+  initSujets() {
+    this.service.getAll().subscribe({
+      next: (data) => {
+        this.sujets = data;
+        console.log('Init Liste Sujet : ', data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
 }

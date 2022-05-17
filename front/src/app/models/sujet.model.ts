@@ -1,8 +1,10 @@
+import { Message } from "./message.model";
+
 export class Sujet {
     id?: string;
     title?: string;
     likes?: number;
-    messages?: string[];
+    messages!: Message[];
     createdDate?: Date;
     updatedDate?: Date;
 }

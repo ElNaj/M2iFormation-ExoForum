@@ -1,6 +1,6 @@
 export class Message {
     content?: string;
-    likes?: number;
+    likes!: number;
     createdDate?: Date;
     updatedDate?: Date;
 }

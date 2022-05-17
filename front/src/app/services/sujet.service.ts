@@ -32,6 +32,10 @@ export class SujetService {
     create(sujet: Sujet): Observable<Sujet> {
       return this.http.post<Sujet>(`${environment.apiSujetUrl}`, sujet);
     }
+
+    update(id: string, sujet: Sujet): Observable<Sujet> {
+      return this.http.post<Sujet>(`${environment.apiSujetUrl}/update/${id}`, sujet);
+    }
   
     /**
      * Méthode Delete du CRUD, méthode pour supprimer un cadeau de 
@@ -52,8 +56,8 @@ export class SujetService {
       return this.http.post<Sujet>(`${environment.apiSujetUrl}/like/${id}`, sujet);
     }
 
-    public likeMessage(id: string, message: Message): Observable<Sujet>{
-      return this.http.post<Sujet>(`${environment.apiSujetUrl}/like-message/${id}`, message);
-    }
+    // public likeMessage(id: string, message: Message): Observable<Sujet>{
+    //   return this.http.post<Sujet>(`${environment.apiSujetUrl}/like-message/${id}`, message);
+    // }
 
 }

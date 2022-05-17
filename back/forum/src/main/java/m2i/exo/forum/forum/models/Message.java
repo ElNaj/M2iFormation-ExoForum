@@ -10,5 +10,11 @@ public class Message {
     private String content;
     private int likes;
     private LocalDate createdDate;
-    private LocalDate updatedDate;   
+    private LocalDate updatedDate;  
+    
+    public int likeMessage(int likes) {
+        likes ++;
+        System.out.println(likes);
+        return likes;
+    }
 }

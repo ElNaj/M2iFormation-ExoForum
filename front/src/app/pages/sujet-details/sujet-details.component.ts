@@ -13,10 +13,14 @@ import { SujetService } from 'src/app/services/sujet.service';
 export class SujetDetailsComponent implements OnInit {
 
   sujet: Sujet = new Sujet();
-  message: Message = {"content": ""};
+  message: Message = {
+    "content": "",
+    likes: 0
+  };
   index!: number;
   id!: string;
   likes?: number;
+  likesMsg?: number;
  
   messageForm : FormGroup;
   displayStyle = "none";
@@ -59,21 +63,14 @@ export class SujetDetailsComponent implements OnInit {
   }
 
   likerMessage(index: number) {
-    this.service.getById(this.id).subscribe((data) => {
+    this.service.update(this.id, this.sujet).subscribe((data) => {
       this.sujet = data;
       this.likes = this.sujet.likes;
-      console.log(this.sujet.messages[index].likes);
-      this.service.likeMessage(this.id, this.message).subscribe({
-        next: () => {
-          this.message = this.sujet.messages[index];
-          this.router.navigateByUrl("/sujets/" + this.id);
-          this.initSujet();
-        }, 
-        error: (err) => {
-          alert(err);
-        }
-      })
+      this.likesMsg = this.sujet.messages[index].likes;
+      console.log(this.likesMsg + 1);
+      this.sujet.messages[index].likes = this.likesMsg + 1;
     });
+    this.initSujet();
   }
 
   ajouterMessage() {

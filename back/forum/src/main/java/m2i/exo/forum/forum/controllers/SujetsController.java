@@ -77,33 +77,23 @@ public class SujetsController {
         sujet.setLikes(sujet.getLikes() + 1);
         return this.sujetService.save(sujet);
     }
-    @PostMapping("/like-message/{id}")
-    public Sujet likerMessage(@PathVariable("id") String id, @RequestBody Message message) {
+
+    // @PostMapping("/like-message/{id}")
+    // public Sujet likerMessage(@PathVariable("id") String id,  @RequestBody Message message) {
+    //     Sujet sujet = this.findById(id);
+    //     // List<Message> messages = sujet.getMessages();
+    //     // SI boucle on modifie les boucles de tous les messages...
+    //     // ((SujetServiceImpl) this.sujetService).likeMsg(id, message);
+    //     message.likeMessage(message.getLikes());
+    //     System.out.println("Controller : " + message.getLikes());
+    //     this.sujetService.save(sujet);
+    //     return sujet;
+    // }
+    @PostMapping("/update/{id}")
+    public Sujet update(@PathVariable("id") String id) {
         Sujet sujet = this.findById(id);
-        List<Message> messages = sujet.getMessages();
-        System.out.println("Avant Boucle Likes Message : " + message.getLikes());
-        for (int i = 0; i < messages.size(); i++) {
-            message = messages.get(i);
-            messages.get(i).setLikes(messages.get(i).getLikes() +1);
-        }
-        System.out.println("Après Boucle Likes " + message.getLikes());
-        return this.sujetService.save(sujet);
-        
-        // if (messages.get(index) != null) {
-        //     message.setLikes(1);
-        //     messages.add(message);
-        //     sujet.setMessages(messages);
-        //     return this.sujetService.save(sujet);
-        // } else if(messages.get(index) != null) {
-        //     for(int i = index; i < messages.size(); i++) {
-        //         if(messages.get(index).getLikes() == message.getLikes()){
-        //             message.setLikes(message.getLikes() + 1);
-        //             messages.set(index, message);
-        //             this.sujetService.save(sujet);
-        //         }
-        //     }
-         
-        // return ((SujetServiceImpl) this.sujetService).likeMessage(id, message);
+        this.sujetService.save(sujet);
+        return sujet;
     }
 
     @PostMapping("/{id}/messages")

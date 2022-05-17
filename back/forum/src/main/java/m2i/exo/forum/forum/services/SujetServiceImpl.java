@@ -23,6 +23,13 @@ public class SujetServiceImpl extends AbstractGenrericCRUDService<Sujet> impleme
         return super.save(entity);
     }
 
+    // public Message likeMsg(String id, Message entity) {
+    //     Sujet sujet = super.findById(id);
+    //     entity.likeMessage(entity.getLikes());
+    //     super.save(sujet);
+    //     return entity; 
+    // }
+
     public Sujet addMessage(String id, Message message) {
         Sujet sujet = this.findById(id);
         sujet.getMessages().add(message);

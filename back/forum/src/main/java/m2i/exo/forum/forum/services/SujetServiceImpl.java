@@ -1,8 +1,10 @@
 package m2i.exo.forum.forum.services;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+import m2i.exo.forum.forum.models.Message;
 import m2i.exo.forum.forum.models.Sujet;
 import m2i.exo.forum.forum.repositories.SujetRepository;
 
@@ -19,6 +21,12 @@ public class SujetServiceImpl extends AbstractGenrericCRUDService<Sujet> impleme
     public Sujet save(Sujet entity) {
         entity.setCreatedDate(LocalDate.now());
         return super.save(entity);
+    }
+
+    public Sujet addMessage(String id, Message message) {
+        Sujet sujet = this.findById(id);
+        sujet.getMessages().add(message);
+        return this.save(sujet);
     }
     
 }

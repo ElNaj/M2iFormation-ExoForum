@@ -1,1 +1,13 @@
-<p>sujet-card works!</p>
+<div class="card">
+    <div class="container">
+        <div class="element">
+            <div class="card-body">
+                <h5 class="card-title">#{{sujet?.title}}</h5>
+                <h6 class="card-title">{{sujet?.messages?.length}} messages</h6>
+                <p>Créé le : {{ sujet?.createdDate }}</p>
+                <p>Liké {{ sujet?.likes }} fois !</p>
+                <button class="btn btn-secondary" (click)="details()">Détails</button>
+            </div>
+        </div>
+    </div>
+</div>
